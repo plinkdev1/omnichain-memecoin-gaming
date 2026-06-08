@@ -1,57 +1,65 @@
-﻿# DatXit ($DATX)
+﻿# DatXit — An Omnichain Memecoin Ecosystem with On-Chain Micro-Betting Games
 
-![Solana](https://img.shields.io/badge/Solana-9945FF?logo=solana&logoColor=white)
-![LayerZero](https://img.shields.io/badge/LayerZero-000000)
-![Next.js](https://img.shields.io/badge/Next.js-000?logo=next.js&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
-![Status](https://img.shields.io/badge/status-MVP-orange)
+A community-token ecosystem built around $DATX: a Solana-native token, a private arcade of turn-based player-vs-player games with real on-chain stakes, and a satirical prediction market — all under one themed app.
 
-> **An omnichain community-token ecosystem** pairing a Solana-native memecoin ($DATX) with a P2P micro-betting arcade and a satirical prediction market — NFT power-ups, on-chain escrow, and an open API for bots.
+> **Status:** MVP / mock-mode. The arcade and themed front-end are implemented; on-chain staking, NFT power-ups, and omnichain bridging are in progress.
 
-DatXit is the umbrella product for **$DATX**. It bundles three things: the token, **Arena** (a private club of turn-based P2P games with real on-chain stakes), and **Bets** (the DXMarket prediction market).
+## Overview
 
-## Features
+DatXit bundles three things into one product: the $DATX token, **Arena** (a wallet-gated club of six turn-based 2-player games that can be played for small on-chain stakes), and **Bets** (an integrated satirical prediction market). It is designed Solana-first and built to expand omnichain.
 
-| Module | Description |
-|---|---|
-| **$DATX token** | Solana SPL community token, going omnichain via LayerZero + Hyperlane. |
-| **Arena** | Six turn-based 2-player games (Tic-Tac-Toe, Checkers, Gomoku, Dots & Boxes, Halma, Nine Men's Morris) with optional $DATX stakes. |
-| **On-chain stakes** | Wagered games escrow $DATX on-chain; a share of losses is burned (deflationary). |
-| **NFT power-ups** | Collectible gear that grants real in-game edge. |
-| **Bets** | Integrated satirical prediction market (see DXMarket). |
-| **Open API** | Public endpoints so the community can build arbitrage/automation bots. |
-| **Wallet-gated club** | Private hub gated by team password / wallet. |
+It is a typed Next.js application with a fully client-side game engine, a consistent themed visual system (per-page dynamic backgrounds), and an on-chain layer for staked matches kept behind a wallet/escrow boundary so casual play needs no backend.
 
-## Engineering highlights
+## Core Features
 
-- **Client-side game engine** — six fully turn-based games sharing a swappable board abstraction (pure React/JS, no realtime sync needed).
-- **On-chain escrow + burn** — staked matches lock $DATX and settle on-chain, burning a portion on loss.
-- **Omnichain design** — token bridging via LayerZero + Hyperlane.
-- **NFT integration** — power-up NFTs affect game logic; metadata via nft.storage.
-- **Immersive theming** — per-page dynamic backgrounds and a consistent neon visual system across the Next.js app.
-
-## Tech stack
-
-| Layer | Stack |
-|---|---|
-| Frontend | Next.js, React, TypeScript, Tailwind CSS, shadcn/ui |
-| Chain | Solana (SPL), LayerZero + Hyperlane (omnichain) |
-| Wallet | Phantom, Alchemy RPC |
-| Game state | Client-side (localStorage for casual play, on-chain tx for staked) |
-| Storage | nft.storage |
+- **$DATX token** — Solana SPL community token, designed to go omnichain via LayerZero + Hyperlane.
+- **Arena** — six turn-based 2-player games (Tic-Tac-Toe, Checkers, Gomoku, Dots & Boxes, Halma, Nine Men's Morris) with optional stakes.
+- **On-chain stakes** — wagered matches escrow $DATX on-chain and burn a share of losses (deflationary).
+- **NFT power-ups** — collectible gear that grants in-game edge.
+- **Bets** — an integrated satirical prediction market.
+- **Public API** — open endpoints so the community can build bots.
 
 ## Architecture
-Next.js client
-├── Arena (client-side game engine, 6 games)
-├── Bets  (prediction market UI)
-└── Wallet (Phantom)
-│  staked matches / bets
-▼
-Solana programs (escrow · burn) + $DATX SPL
-│
-▼
-LayerZero / Hyperlane  →  omnichain $DATX
 
-## Status
+| Layer | Technology |
+|-------|------------|
+| Frontend | Next.js, React, TypeScript, Tailwind CSS, shadcn/ui |
+| Chain | Solana (SPL); LayerZero + Hyperlane (omnichain, roadmap) |
+| Wallet | Phantom via Alchemy RPC |
+| Game state | Client-side (localStorage for casual, on-chain tx for staked) |
+| Storage | IPFS / nft.storage |
 
-Early MVP / mock-mode. Managed under the Treezures Labs umbrella.
+**Project layout.** A themed marketing site, a wallet-gated `/private` Arena hub with a swappable board engine shared across the six games, and a Bets prediction-market section. Staked matches and the prediction market settle through dedicated wallet/escrow flows.
+
+## Screenshots
+
+<p align="center">
+  <img src="screenshots/01.png" width="800" /><br/><br/>
+  <img src="screenshots/02.png" width="800" /><br/><br/>
+  <img src="screenshots/03.png" width="800" /><br/><br/>
+  <img src="screenshots/04.png" width="800" /><br/><br/>
+</p>
+
+## Getting Started
+
+```bash
+npm install --legacy-peer-deps --ignore-scripts
+npx next dev
+```
+
+Environment variables (names only — never commit real values):
+NEXT_PUBLIC_NFT_STORAGE_KEY=
+NEXT_PUBLIC_TEAM_PASSWORD=
+NEXT_PUBLIC_SOLANA_RPC_URL=
+
+## Roadmap
+
+- On-chain staking and burn on Solana mainnet
+- NFT power-up minting and effects
+- Omnichain $DATX via LayerZero + Hyperlane
+- Public bot/API documentation
+
+## Notes
+
+Shared as a portfolio artifact demonstrating product and system design. Early prototype, not a finished product. All content is satirical and for entertainment only — not financial advice, and no real-money gambling.
+
