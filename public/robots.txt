@@ -1,0 +1,13 @@
+# DatXit - Sewer Revolution SEO Configuration
+
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+Disallow: /api/
+
+# Specific crawl directives
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://datxit.com/sitemap.xml

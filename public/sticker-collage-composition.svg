@@ -1,0 +1,50 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Black background -->
+  <rect width="1200" height="800" fill="#000000"/>
+  
+  <!-- Neon glow filters -->
+  <defs>
+    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Sticker pile - scattered overlapping arrangement -->
+  <!-- Sticker 1: cameraroll (bottom-left, rotated -15°) -->
+  <image href="/images/cameraroll.png" x="80" y="480" width="200" height="200" transform="rotate(-15 180 580)" filter="url(#neonGlow)"/>
+  
+  <!-- Sticker 2: stop (center-top, rotated 8°) -->
+  <image href="/images/stop.png" x="400" y="100" width="200" height="200" transform="rotate(8 500 200)" filter="url(#neonGlow)"/>
+  
+  <!-- Sticker 3: policeinspector (center-left, rotated -8°) -->
+  <image href="/images/policeinspector.png" x="200" y="300" width="180" height="180" transform="rotate(-8 290 390)" filter="url(#neonGlow)"/>
+  
+  <!-- Sticker 4: toiletpaper (right-top, rotated 12°) -->
+  <image href="/images/toiletpaper.png" x="780" y="150" width="190" height="190" transform="rotate(12 875 245)" filter="url(#neonGlow)"/>
+  
+  <!-- Sticker 5: 18ball (center-middle, rotated -5°) -->
+  <image href="/images/18ball.png" x="480" y="350" width="210" height="210" transform="rotate(-5 585 455)" filter="url(#neonGlow)"/>
+  
+  <!-- Sticker 6: smile4 (left-top, rotated -18°) -->
+  <image href="/images/smile4.png" x="50" y="150" width="170" height="170" transform="rotate(-18 135 235)" filter="url(#neonGlow)"/>
+  
+  <!-- Sticker 7: flame (right-center, rotated 10°) -->
+  <image href="/images/flame.png" x="820" y="420" width="200" height="200" transform="rotate(10 920 520)" filter="url(#neonGlow)"/>
+  
+  <!-- Sticker 8: refresh (bottom-center, rotated -10°) -->
+  <image href="/images/refresh.png" x="450" y="550" width="210" height="210" transform="rotate(-10 555 655)" filter="url(#neonGlow)"/>
+  
+  <!-- Sticker 9: gamedice (right-bottom, rotated 6°) -->
+  <image href="/images/gamedice.png" x="950" y="550" width="180" height="180" transform="rotate(6 1040 640)" filter="url(#neonGlow)"/>
+  
+  <!-- Sticker 10: twitterbird (left-bottom, rotated 15°) -->
+  <image href="/images/twitterbird.png" x="120" y="600" width="170" height="170" transform="rotate(15 205 685)" filter="url(#neonGlow)"/>
+  
+  <!-- Neon glow background elements (subtle) -->
+  <circle cx="600" cy="400" r="350" fill="none" stroke="#00ff00" stroke-width="1" opacity="0.1" filter="url(#neonGlow)"/>
+  <circle cx="600" cy="400" r="380" fill="none" stroke="#ff3300" stroke-width="1" opacity="0.08" filter="url(#neonGlow)"/>
+</svg>

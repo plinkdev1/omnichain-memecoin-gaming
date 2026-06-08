@@ -1,0 +1,192 @@
+/* Polaroid conspiracy wall styles */
+.polaroid {
+  position: absolute;
+  background: #fff;
+  padding: 12px;
+  padding-bottom: 45px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  /* Lower base z-index to prevent overflow over other sections */
+  z-index: 1;
+  max-width: 95%;
+}
+
+.polaroid:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4), 0 15px 30px rgba(0, 0, 0, 0.3);
+  /* Keep hover z-index within reasonable bounds */
+  z-index: 50 !important;
+}
+
+.polaroid-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #f0f0f0;
+  overflow: hidden;
+}
+
+.polaroid-caption {
+  position: absolute;
+  bottom: 8px;
+  left: 12px;
+  right: 12px;
+  text-align: center;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 14px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Size variations */
+.polaroid {
+  width: 180px;
+  height: 220px;
+}
+
+.polaroid-inner {
+  height: 165px;
+}
+
+.polaroid-medium {
+  width: 240px;
+  height: 280px;
+}
+
+.polaroid-medium .polaroid-inner {
+  height: 220px;
+}
+
+.polaroid-large {
+  width: 320px;
+  height: 380px;
+}
+
+.polaroid-large .polaroid-inner {
+  height: 310px;
+}
+
+/* Central focal piece */
+.polaroid-central {
+  width: 350px;
+  height: 420px;
+  border: 4px solid #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4), 0 20px 40px rgba(0, 0, 0, 0.3);
+  /* Central piece z-index contained within section */
+  z-index: 20 !important;
+}
+
+.polaroid-central .polaroid-inner {
+  height: 350px;
+}
+
+/* Shape variations */
+.polaroid-torn {
+  clip-path: polygon(0 0, 95% 0, 100% 8%, 100% 100%, 5% 100%, 0 95%);
+}
+
+.polaroid-round .polaroid-inner {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/* Decorative elements */
+.polaroid-pin {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle, #e74c3c 40%, #c0392b 100%);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), inset 0 -2px 3px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.polaroid-tape {
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  width: 60px;
+  height: 25px;
+  background: rgba(255, 248, 220, 0.7);
+  transform: rotate(-15deg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(139, 69, 19, 0.1);
+}
+
+.polaroid-tape::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  top: 50%;
+  background: rgba(139, 69, 19, 0.05);
+}
+
+.polaroid-string {
+  position: absolute;
+  width: 2px;
+  height: 100px;
+  background: #8b4513;
+  top: -100px;
+  left: 50%;
+  transform-origin: bottom;
+  opacity: 0.4;
+}
+
+/* Empty placeholder styling */
+.polaroid-empty {
+  border: 2px dashed rgba(139, 69, 19, 0.3);
+  opacity: 0.6;
+}
+
+.polaroid-empty:hover {
+  opacity: 0.9;
+  border-style: solid;
+}
+
+/* Add container isolation to prevent overflow */
+#sightings-wall {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+}
+
+/* Ensure parent section creates stacking context */
+.sightings-section {
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .polaroid,
+  .polaroid-medium,
+  .polaroid-large {
+    position: relative !important;
+    margin: 20px auto !important;
+    transform: none !important;
+    left: auto !important;
+    top: auto !important;
+  }
+
+  #sightings-wall {
+    min-height: auto !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .polaroid-central {
+    width: 280px;
+    height: 340px;
+  }
+
+  .polaroid-central .polaroid-inner {
+    height: 270px;
+  }
+}
