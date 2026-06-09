@@ -1,6 +1,6 @@
-﻿<div align="center">
+<div align="center">
 
-# DatXit ($DATX)
+# Omnichain Memecoin Gaming Ecosystem
 
 **An omnichain memecoin ecosystem with on-chain micro-betting games**
 
